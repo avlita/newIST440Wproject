@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
+    <title>Google Vision</title>
 
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script>
@@ -33,22 +33,13 @@
             user.getIdToken().then(function(accessToken) {
               document.getElementById('sign-in-status').textContent = 'Signed in';
               document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ');
+              document.getElementById('account-details').textContent = "avla";
             });
           } else {
             // User is signed out.
             document.getElementById('sign-in-status').textContent = 'Signed out';
             document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';
+            document.getElementById('account-details').textContent = 'test';
           }
         }, function(error) {
           console.log(error);
@@ -61,9 +52,19 @@
     </script>
   </head>
   <body>
-    <h1>Welcome to IST 440W Team 3's web app</h1>
-    <div id="sign-in-status"></div>
-    <div id="sign-in"></div>
-    <div id="account-details"></div>
+    <h1>Google vision. Please upload image here</h1>
+   		<div class="center-all style-scope vs-app">
+<div id="title" class="style-scope vs-app">Try the API</div>
+<div id="dropzone" class="center-all style-scope vs-app">
+<div class="dropzone-text style-scope vs-app">
+Drag image file here or<br class="style-scope vs-app">Browse from your computer
+</div>
+<div class="dropzone-text-mobile style-scope vs-app">
+Upload your image
+</div>
+<label id="click-to-select-file" for="input" class="style-scope vs-app"></label>
+<input type="file" id="input" hidden="" class="style-scope vs-app">
+</div>
+</div>
   </body>
 </html>
