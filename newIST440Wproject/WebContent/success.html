@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>Google Vision</title>
-
+	 <link href="css/drag.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+   
     <script>
       // Initialize Firebase
       var config = {
@@ -17,7 +19,43 @@
       };
       firebase.initializeApp(config);
     </script>
-    
+     <script src="js/vision.js"></script>
+     
+     <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+ // function loadClient() {
+  //  gapi.client.setApiKey("AIzaSyB0NeE-V16VSM5JQ7AQD9AAlnTEZEowFdA");
+  //  return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/vision/v1/rest")
+ //       .then(function() { console.log("GAPI client loaded for API"); },
+  //            function(err) { console.error("Error loading GAPI client for API", err); });
+ // }
+  // Make sure the client is loaded before calling this method.
+  //function execute(image) {
+   // return gapi.client.vision.images.annotate({
+   //   "resource": {
+   // 	  "requests": [
+   // 		    {
+   // 		      "image": {
+    //		        "content": image
+    //		      },
+    //		      "features": [
+    //		        {
+  //  		          "type": "TEXT_DETECTION"
+  //  		        }
+   // 		      ]
+    //		    }
+    //		  ]	  
+     // }
+   // })
+     //   .then(function(response) {
+       //         // Handle the results here (response.result has the parsed body).
+         //       console.log("Response", response);
+           //   },
+             // function(err) { console.error("Execute error", err); });
+  //}
+ // gapi.load("client");
+</script>   
+     
     <script type="text/javascript">
       initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -31,15 +69,11 @@
             var phoneNumber = user.phoneNumber;
             var providerData = user.providerData;
             user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = "avla";
+            
             });
           } else {
             // User is signed out.
-            document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'test';
+           
           }
         }, function(error) {
           console.log(error);
@@ -53,18 +87,15 @@
   </head>
   <body>
     <h1>Google vision. Please upload image here</h1>
-   		<div class="center-all style-scope vs-app">
-<div id="title" class="style-scope vs-app">Try the API</div>
-<div id="dropzone" class="center-all style-scope vs-app">
-<div class="dropzone-text style-scope vs-app">
-Drag image file here or<br class="style-scope vs-app">Browse from your computer
-</div>
-<div class="dropzone-text-mobile style-scope vs-app">
-Upload your image
-</div>
-<label id="click-to-select-file" for="input" class="style-scope vs-app"></label>
-<input type="file" id="input" hidden="" class="style-scope vs-app">
-</div>
-</div>
+   		<form class="box" method="post" action="" enctype="multipart/form-data">
+  <div class="box__input">
+    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple onclick="loadClient()"/>
+    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+    <button class="box__button" type="submit" onclick="execute('js/menu34.jpg')">Upload</button>
+  </div>
+  <div class="box__uploading">Uploading&hellip;</div>
+  <div class="box__success">Done!</div>
+  <div class="box__error">Error! <span></span>.</div>
+</form>
   </body>
 </html> 
