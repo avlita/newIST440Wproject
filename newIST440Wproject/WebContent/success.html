@@ -21,40 +21,7 @@
     </script>
      <script src="js/vision.js"></script>
      
-     <script src="https://apis.google.com/js/api.js"></script>
-  <script>
- // function loadClient() {
-  //  gapi.client.setApiKey("AIzaSyB0NeE-V16VSM5JQ7AQD9AAlnTEZEowFdA");
-  //  return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/vision/v1/rest")
- //       .then(function() { console.log("GAPI client loaded for API"); },
-  //            function(err) { console.error("Error loading GAPI client for API", err); });
- // }
-  // Make sure the client is loaded before calling this method.
-  //function execute(image) {
-   // return gapi.client.vision.images.annotate({
-   //   "resource": {
-   // 	  "requests": [
-   // 		    {
-   // 		      "image": {
-    //		        "content": image
-    //		      },
-    //		      "features": [
-    //		        {
-  //  		          "type": "TEXT_DETECTION"
-  //  		        }
-   // 		      ]
-    //		    }
-    //		  ]	  
-     // }
-   // })
-     //   .then(function(response) {
-       //         // Handle the results here (response.result has the parsed body).
-         //       console.log("Response", response);
-           //   },
-             // function(err) { console.error("Execute error", err); });
-  //}
- // gapi.load("client");
-</script>   
+     <script src="https://apis.google.com/js/api.js"></script>  
      
     <script type="text/javascript">
       initApp = function() {
@@ -84,18 +51,48 @@
         initApp()
       });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript" src="key.js"></script>
+	<script type="text/javascript" src="main.js"></script>
   </head>
   <body>
-    <h1>Google vision. Please upload image here</h1>
-   		<form class="box" method="post" action="" enctype="multipart/form-data">
-  <div class="box__input">
-    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple onclick="loadClient()"/>
-    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-    <button class="box__button" type="submit" onclick="execute('js/menu34.jpg')">Upload</button>
+  
+  <!-- Google OCR -->
+    <h1>Hello. Please upload image here and click submit</h1>
+   		<form id="fileform" action="">
+		<select name="type" id="type">
+			<option value="TEXT_DETECTION">TEXT_DETECTION</option>
+		</select><br />
+		<input id="fileInput" type="file" name="fileField"><br /><br />
+		<input type="submit" name="submit" value="Submit">
+	</form>
+	
+<!--             Google Translate                         -->
+	<div id="results"></div> 
+	<div id="wrapper">
+  <div class="container">
+    <div class="col">
+      <textarea class="text-to-translate" placeholder="Text to translate"></textarea>
+      
+      <select class="source-lang">
+        <option selected disabled>Source</option>
+      </select>
+      <select class="target-lang">
+        <option selected disabled>Target</option>
+      </select>
+
+      <button class="translate">Translate</button>
+      <button class="detect">Detect Language</button>
+    </div>
+
+    <div class="col">
+      <h2 class="translation-heading">Translation</h2>
+      <h2 class="detection-heading">Detected Language</h2>
+      <p class="target"></p>
+
+    </div>
   </div>
-  <div class="box__uploading">Uploading&hellip;</div>
-  <div class="box__success">Done!</div>
-  <div class="box__error">Error! <span></span>.</div>
-</form>
+</div>
+	
   </body>
 </html> 
