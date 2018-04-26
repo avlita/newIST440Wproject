@@ -106,7 +106,7 @@ $(function() {
       translationObj = {
         sourceLang: $(".source-lang").val(),
         targetLang: $(".target-lang").val(),
-        textToTranslate: $("textarea").val()
+        textToTranslate: $("textarea#translation").val()
       };
 
       if (translationObj.targetLang !== null) {
@@ -118,7 +118,7 @@ $(function() {
     // Bind detect function to detect button
     .on("click", "button.detect", function() {
       translationObj = {
-        textToTranslate: $("textarea").val()
+        textToTranslate: $("textarea#translation").val()
       };
 
       detect(translationObj);
