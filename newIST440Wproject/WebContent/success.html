@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <meta charset="UTF-8">
-  <link rel="stylesheet" href="googletranslatedesign.css">
-   
-    <title>Google Vision</title>
-	 
+    <title>Team 3's Web App</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
    
@@ -70,26 +71,35 @@ ga('create','UA-23532931-1','auto'); ga('send','pageview');
 	<script src="translate.js"></script>
 </head>
 
-  <body>
+  <body style="background-color:FloralWhite;">
   
+  <h1 align="center" style="font-family:Broadway">Application User Interface</h1>
+  
+  <div class="container">
   <!-- Google OCR -->
-    <h1>Hello. Please upload image here and click submit</h1>
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="font-family:verdana">Text Extraction</div>
    		<form id="fileform" action="">
 		<select name="type" id="type">
 			<option value="TEXT_DETECTION">TEXT_DETECTION</option>
 		</select><br />
+
 		<input id="fileInput" type="file" name="fileField"><br /><br />
+        
 		<input type="submit" name="submit" value="Submit">
-	</form>
-	
+	</form>	
+  </div>
 	
 <!-- Ceasar Cipher Decryption -->  
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="font-family:verdana">Encryption</div>
 	<form action="#" method="get" onsubmit="return false;">
 	<table class="noborder">
 		<tbody>
 			<tr>
 				<td><label for="text">Text:</label></td>
-				<td><textarea id="text" cols="50" rows="10" style="width:40em; height:15em">PLEASE ENTER TEXT TO DECRYPT</textarea></td>
+				<td><textarea id="text" cols="50" rows="10" style="width:40em; height:10em" placeholder="Please enter text to decrypt"></textarea></td>
 			</tr>
 			<tr>
 				<td><label for="shift">Shift:</label></td>
@@ -105,34 +115,43 @@ ga('create','UA-23532931-1','auto'); ga('send','pageview');
 		</tbody>
 	</table>
 </form>
+</div>
 	
 	
 <!-- Google Translate -->
+<div class="panel panel-primary">
+      <div class="panel-heading" style="font-family:verdana">Translation</div>
 	<div id="results"></div> 
 	<div id="wrapper">
   <div class="container">
     <div class="col">
-      <textarea id="translation" class="text-to-translate" placeholder="Text to translate"></textarea>
+      <textarea id="translation" class="text-to-translate" placeholder="Please enter text to translate" cols="50" rows="10" style="width:40em; height:10em"></textarea>
       
-      
+      <ul style="list-style-type:none">
       <select class="source-lang">
-        <option selected disabled>Source</option>
+        <li><option selected disabled>Source</option></li>
       </select>
+      
+     
       <select class="target-lang">
-        <option selected disabled>Target</option>
+       <li> <option selected disabled>Target</option> </li>
+     
       </select>
-
+      </ul>
+      
+     
       <button class="translate">Translate</button>
       <button class="detect">Detect Language</button>
+     
     </div>
 
     <div class="col">
       <h2 class="translation-heading">Translation</h2>
       <h2 class="detection-heading">Detected Language</h2>
-      <p class="target"></p>
-
-    </div>
+      <p class="target"></p> </div>
   </div>
+</div>
+</div>
 </div>
 	
   </body>
