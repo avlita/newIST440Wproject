@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
+  <link rel="stylesheet" href="googletranslatedesign.css">
+   
     <title>Google Vision</title>
-	 <link href="css/drag.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	 
 	
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
    
@@ -54,6 +56,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script type="text/javascript" src="key.js"></script>
 	<script type="text/javascript" src="main.js"></script>
+	
+	<script src="translate.js"></script>
   </head>
   <body>
   
@@ -67,7 +71,41 @@
 		<input type="submit" name="submit" value="Submit">
 	</form>
 	
-<!--             Google Translate                         -->
+	
+<!-- Ceasar Cipher Decryption -->  
+	<form action="#" method="get" onsubmit="return false;">
+	<table class="noborder">
+		<tbody>
+			<tr>
+				<td><label for="text">Text:</label></td>
+				<td><textarea id="text" cols="50" rows="10" style="width:40em; height:15em">PLEASE ENTER TEXT TO DECRYPT</textarea></td>
+			</tr>
+			<tr>
+				<td><label for="shift">Shift:</label></td>
+				<td><input type="text" id="shift" value="13" style="width:4em;"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" value="Encrypt" onclick="doCrypt(false);"/>
+					<input type="button" value="Decrypt" onclick="doCrypt(true);"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<script type="application/javascript" src="caesar-cipher.js"></script>
+
+<script type="application/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create','UA-23532931-1','auto'); ga('send','pageview');
+</script>
+	
+	
+<!-- Google Translate -->
 	<div id="results"></div> 
 	<div id="wrapper">
   <div class="container">
