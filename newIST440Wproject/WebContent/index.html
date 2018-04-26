@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    
     <title>IST440W Team3</title>
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <meta charset="UTF-8">
+    <script src="https://apis.google.com/js/platform.js" async defer
+	        type="text/javascript"></script>
+    <meta name="google-signin-client_id"
+	content="656874693115-fa80q1ssl9na9h02bukinqmpq4vaafrd.apps.googleusercontent.com">
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -39,10 +43,35 @@
     </script>
   </head>
   <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to IST440W Team 3's Web App</h1>
-    <div id="firebaseui-auth-container"></div>
-   
-  </body>
+	   <div class="site-wrapper">
+		
+		    <div class="site-wrapper-inner">
+
+			    <div class="container">
+
+				    <div class="masthead clearfix">
+					    <div class="container inner">
+						<nav>
+							<ul class="nav masthead-nav">
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+				<div class="inner cover">
+                        <h1>Welcome to IST440W Team 3's Web App</h1>
+                        <div id="firebaseui-auth-container"></div>
+                </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	    <footer>
+		         <p style="color: black">Contributors: Anthony DiMichele, Arlan
+			             Hamilton, Avla Ekra,</p>
+	    </footer>
+</body>
 </html>
