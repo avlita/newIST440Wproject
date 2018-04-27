@@ -1,158 +1,204 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Team 3's Web App</title>
-	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-   
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyDczTU0kifrO1EGlDs6-PSvcCXs3kDQ00c",
-        authDomain: "ist440w-project.firebaseapp.com",
-        databaseURL: "https://ist440w-project.firebaseio.com",
-        projectId: "ist440w-project",
-        storageBucket: "ist440w-project.appspot.com",
-        messagingSenderId: "759127897446"
-      };
-      firebase.initializeApp(config);
-    </script>
-     <script src="js/vision.js"></script>
-     
-     <script src="https://apis.google.com/js/api.js"></script>  
-     
-    <script type="text/javascript">
-      initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var uid = user.uid;
-            var phoneNumber = user.phoneNumber;
-            var providerData = user.providerData;
-            user.getIdToken().then(function(accessToken) {
-            
-            });
-          } else {
-            // User is signed out.
-           
-          }
-        }, function(error) {
-          console.log(error);
-        });
-      };
+<head>
+<title>Team 3's Web App</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	type="text/javascript"></script>
 
-      window.addEventListener('load', function() {
-        initApp()
-      });
-    </script>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script type="text/javascript" src="key.js"></script>
-	<script type="text/javascript" src="main.js"></script>
-	
-	<script type="application/javascript" src="caesar-cipher.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"
+	type="text/javascript"></script>
+
+<script type="text/javascript">
+	// Initialize Firebase
+	var config = {
+		apiKey : "AIzaSyDczTU0kifrO1EGlDs6-PSvcCXs3kDQ00c",
+		authDomain : "ist440w-project.firebaseapp.com",
+		databaseURL : "https://ist440w-project.firebaseio.com",
+		projectId : "ist440w-project",
+		storageBucket : "ist440w-project.appspot.com",
+		messagingSenderId : "759127897446"
+	};
+	firebase.initializeApp(config);
+</script>
+<script src="js/vision.js" type="text/javascript"></script>
+
+<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	initApp = function() {
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				// User is signed in.
+				var displayName = user.displayName;
+				var email = user.email;
+				var emailVerified = user.emailVerified;
+				var photoURL = user.photoURL;
+				var uid = user.uid;
+				var phoneNumber = user.phoneNumber;
+				var providerData = user.providerData;
+				user.getIdToken().then(function(accessToken) {
+
+				});
+			} else {
+				// User is signed out.
+
+			}
+		}, function(error) {
+			console.log(error);
+		});
+	};
+
+	window.addEventListener('load', function() {
+		initApp()
+	});
+</script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="key.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+<script type="application/javascript" src="caesar-cipher.js"></script>
 <script type="application/javascript">
+	
+	
+	
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create','UA-23532931-1','auto'); ga('send','pageview');
+
+
+
 </script>
 
-	<script src="translate.js"></script>
+<script src="translate.js" type="text/javascript"></script>
 </head>
 
-  <body style="background-color:FloralWhite;">
-  
-  <h1 align="center" style="font-family:Broadway">Application User Interface</h1>
-  
-  <div class="container">
-  <!-- Google OCR -->
-  <div class="panel-group">
-    <div class="panel panel-primary">
-      <div class="panel-heading" style="font-family:verdana">Text Extraction</div>
-   		<form id="fileform" action="">
-		<select name="type" id="type">
-			<option value="TEXT_DETECTION">TEXT_DETECTION</option>
-		</select><br />
+<body style="background-color: FloralWhite;">
 
-		<input id="fileInput" type="file" name="fileField"><br /><br />
-        
-		<input type="submit" name="submit" value="Submit"/>
-	</form>	
-	<div id="results"></div> 
-  </div>
-	
-<!-- Ceasar Cipher Decryption -->  
-    <div class="panel panel-primary">
-      <div class="panel-heading" style="font-family:verdana">Encryption</div>
-	<form action="#" method="get" onsubmit="return false;">
-	<table class="noborder">
-		<tbody>
-			<tr>
-				<td><label for="text">Text:</label></td>
-				<td><textarea id="text" cols="50" rows="10" style="width:40em; height:10em" placeholder="Please enter text to decrypt"></textarea></td>
-			</tr>
-			<tr>
-				<td><label for="shift">Shift:</label></td>
-				<td><input type="text" id="shift" value="13" style="width:4em;"/></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<input type="button" value="Encrypt" onclick="doCrypt(false);"/>
-					<input type="button" value="Decrypt" onclick="doCrypt(true);"/>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</form>
-</div>
-	
-	
-<!-- Google Translate -->
-<div class="panel panel-primary">
-      <div class="panel-heading" style="font-family:verdana">Translation</div>
-	<div id="wrapper">
-  <div class="container">
-    <div class="col">
-      <textarea id="translation" class="text-to-translate" placeholder="Please enter text to translate" cols="50" rows="10" style="width:40em; height:10em"></textarea>
-      
-      <ul style="list-style-type:none">
-      <select class="source-lang">
-        <li><option selected disabled>Source</option></li>
-      </select>
-      
-     
-      <select class="target-lang">
-       <li> <option selected disabled>Target</option> </li>
-     
-      </select>
-      </ul>
-      
-     
-      <button class="translate">Translate</button>
-      <button class="detect">Detect Language</button>
-     
-    </div>
+	<h1 align="center" style="font-family: Broadway">Application User
+		Interface</h1>
 
-    <div class="col">
-      <h2 class="translation-heading">Translation</h2>
-      <h2 class="detection-heading">Detected Language</h2>
-      <p class="target"></p> </div>
-  </div>
-</div>
-</div>
-</div>
-	
-  </body>
-</html> 
+	<div class="container">
+		<!-- Google OCR -->
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="font-family: verdana">
+					<h4>Text Extraction</h4>
+				</div>
+				<div class="container">
+					<div class="col">
+						<br>
+						<form id="fileform" action="">
+							<select name="type" id="type">
+								<option value="TEXT_DETECTION">TEXT_DETECTION</option>
+							</select><input id="fileInput" type="file" name="fileField"> <br>
+							<input type="submit" name="submit" value="Submit" /> <br>
+						</form>
+						<div id="results"></div>
+						<br>
+					</div>
+				</div>
+			</div>
+
+			<!-- Ceasar Cipher Decryption -->
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="font-family: verdana">
+					<h4>Caesar Cipher</h4>
+				</div>
+				<div class="container">
+					<div class="col">
+						<form action="#" method="get" onsubmit="return false;">
+							<br>
+							<table class="noborder">
+								<tbody>
+									<tr>
+										<td><label for="text">Text:</label></td>
+										<td><textarea id="text" cols="50" rows="10"
+												style="width: 40em; height: 10em"
+												placeholder="Please enter text to decrypt"></textarea></td>
+									</tr>
+									<tr>
+										<td><label for="shift">Shift:</label></td>
+										<td><input type="text" id="shift" value="13"
+											style="width: 4em;" /></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><input type="button" value="Encrypt"
+											onclick="doCrypt(false);" /> <input type="button"
+											value="Decrypt" onclick="doCrypt(true);" /></td>
+									</tr>
+								</tbody>
+							</table>
+							<br>
+						</form>
+						<br>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Google Translate -->
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="font-family: verdana">
+					<h4>Translation</h4>
+				</div>
+				<div id="wrapper">
+					<div class="container">
+						<div class="col">
+							<br>
+							<textarea id="translation" class="text-to-translate"
+								placeholder="Please enter text to translate" cols="50" rows="10"
+								style="width: 40em; height: 10em"></textarea>
+
+							<ul style="list-style-type: none">
+								<select class="source-lang">
+									<li><option selected disabled>Source</option></li>
+								</select>
+
+
+								<select class="target-lang">
+									<li>
+										<option selected disabled>Target</option>
+								</li>
+
+								</select>
+							</ul>
+
+
+							<button class="translate">Translate</button>
+							<button class="detect">Detect Language</button>
+
+						</div>
+
+						<div class="col">
+							<h4 class="translation-heading">Translation</h4>
+							<h5 class="detection-heading">Detected Language</h5>
+							<p class="target"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p align="center" style="color: black">
+			Contributors: Anthony DiMichele, Arlan Hamilton, Avla Ekra, Kelby
+			Chen<br>IST 440W - Joseph Oakes - Spring 2018
+		</p>
+	</footer>
+</body>
+</html>
